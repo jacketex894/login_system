@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./backend    
+    volumes:
+      - ./backend/system:/app/system
+    container_name: login-backend
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    container_name: login-frontend
+    ports:
+      - "8080:8080"
+  # mysql_db:
+  #   image: mysql:8.0
+  #   container_name: mysql
+  #   restart: always
+  #   environment:
+  #     MYSQL_PASSWORD: test
+  #     MYSQL_ROOT_PASSWORD: test
+  #   ports:
+  #     - "3306:3306"
