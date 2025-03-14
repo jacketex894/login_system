@@ -1,9 +1,11 @@
 <script setup>
-import LoginPage from './components/LoginPage.vue'
+import Login from './views/Login.vue'
 </script>
 
 <template>
-  <LoginPage />
+  <!-- <router-link to="/login">Login</router-link> |
+  <router-link to="/register">Register</router-link> -->
+  <router-view></router-view> 
 </template>
 
 <style scoped>
