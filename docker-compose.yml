@@ -12,12 +12,14 @@ services:
     container_name: login-frontend
     ports:
       - "8080:8080"
-  # mysql_db:
-  #   image: mysql:8.0
-  #   container_name: mysql
-  #   restart: always
-  #   environment:
-  #     MYSQL_PASSWORD: test
-  #     MYSQL_ROOT_PASSWORD: test
-  #   ports:
-  #     - "3306:3306"
+  mysql_db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: test
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
