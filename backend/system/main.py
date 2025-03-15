@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from typing import TypedDict
 from fastapi.middleware.cors import CORSMiddleware
 
-from system.lib.hash import hash_password
 
 app = FastAPI()
 
@@ -24,6 +23,5 @@ class LoginRequest(TypedDict):
 
 @app.post("/login")
 async def login(loginrequest:LoginRequest):
-    print(loginrequest)
-    print(f"Hashed Password: {hash_password(loginrequest['password'])}")
+    pass
     return {"message":"login"}
