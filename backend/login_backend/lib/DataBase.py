@@ -29,14 +29,14 @@ class UserData(TypedDict):
 
 class UserDB:
     @staticmethod
-    def register_user(register_request:UserData) -> None:
+    def register_user(user_data:UserData) -> None:
         session = Session()
         try:
-            new_user = User(user_name = register_request['user_name'],
-                            password = register_request['password'],
-                            mail = register_request['mail'],
-                            created_at = register_request['created_at'],
-                            last_login_ip = register_request['last_login_ip'])
+            new_user = User(user_name = user_data['user_name'],
+                            password = user_data['password'],
+                            mail = user_data['mail'],
+                            created_at = user_data['created_at'],
+                            last_login_ip = user_data['last_login_ip'])
             session.add(new_user)
             session.commit()
         except Exception as e:
@@ -46,7 +46,7 @@ class UserDB:
             session.close()
 
     @staticmethod
-    def query_user(user_name:str) -> User:
+    def query_user(user_name:str) -> User|None:
         session = Session()
         query_user = session.query(User).filter(User.user_name == user_name).first()
         session.close()

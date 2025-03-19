@@ -15,4 +15,4 @@ RUN poetry install && rm -rf $POETRY_CACHE_DIR
 #set PATH for poetry
 ENV PATH="/root/.local/bin:${PATH}"
 
-CMD ["poetry", "run", "uvicorn", "login_backend.main:app", "--host", "127.0.0.1", "--port", "8000","--reload"]
+CMD ["poetry", "run", "uvicorn", "login_backend.main:app", "--host", "0.0.0.0", "--port", "8000","--reload"]
