@@ -1,8 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from typing import TypedDict
 from fastapi.middleware.cors import CORSMiddleware
 
-
+from .lib.Hash import HashFactory
 app = FastAPI()
 
 app.add_middleware(
@@ -25,3 +25,14 @@ class LoginRequest(TypedDict):
 async def login(loginrequest:LoginRequest):
     pass
     return {"message":"login"}
+
+class RegisterRequest(TypedDict):
+    account:str
+    password:str
+    mail:str
+
+@app.post("/register")
+def register(register_request:RegisterRequest, request: Request):
+    client_ip = request.client.host 
+    hash_password = HashFactory.get_hash_method("bcrypt").hash_password(register_request['password'])
+    
