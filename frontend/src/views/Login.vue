@@ -15,7 +15,7 @@
 </template>
 <script>
 
-import {login} from '@/utils/login.js'
+import {login} from '@/utils/userDB.js'
 export default {
     name: 'Login',
     data(){

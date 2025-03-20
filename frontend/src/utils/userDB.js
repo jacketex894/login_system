@@ -12,3 +12,15 @@ export function login(account,password){
         return response.json();
     })
 }
+
+export function register(userData){
+    return fetch(`${BASE_URL}/register`,{
+        method:'PUT',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body:JSON.stringify(userData),
+    }).then(response =>{
+        return response.json();
+    })
+}
