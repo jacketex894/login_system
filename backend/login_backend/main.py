@@ -12,7 +12,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:8080"],  
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"], 
     allow_headers=["*"],  
@@ -40,7 +40,7 @@ class RegisterRequest(TypedDict):
     password:str
     mail:str
 
-@app.put("/register", response_model=Union[dict, ErrorResponse], responses={400: {"model": ErrorResponse,
+@app.put("/api/register", response_model=Union[dict, ErrorResponse], responses={400: {"model": ErrorResponse,
                                                                                    "description":"User_name exist error"}})
 def register(register_request:RegisterRequest, request: Request):
     client_ip = request.client.host 

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://localhost/api';
 
 export function login(account,password){
     let data = {'account':account,'password':password}
