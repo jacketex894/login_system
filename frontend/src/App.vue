@@ -2,8 +2,15 @@
 </script>
 
 <template>
-  <router-view></router-view> 
+    <div class="controller">
+      <router-view></router-view>
+    </div>
 </template>
 
 <style scoped>
+.controller{
+  position: relative;
+  z-index: 2;
+}
+
 </style>
