@@ -1,6 +1,0 @@
-mysql_db:
-  MYSQL_USER: 
-  MYSQL_PASSWORD: 
-  USER_DB: 
-  HOST: 
-  PORT: 

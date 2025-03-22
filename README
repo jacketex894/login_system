@@ -1,0 +1,4 @@
+requirement:
+sudo apt install openssl
+docker 
+npm

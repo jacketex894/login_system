@@ -1,0 +1,9 @@
+create_cert: true
+
+#backend setting
+mysql_db:
+  MYSQL_USER: root
+  MYSQL_PASSWORD: test
+  USER_DB: user_db
+  HOST: mysql_db
+  PORT: 3306
